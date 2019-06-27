@@ -67,6 +67,9 @@ RSpec.describe RubyXmlNfe::Xml do
       </enderDest>
       <indIEDest>9</indIEDest>
     </dest>
+    <autXML>
+      <CNPJ>08370779000149</CNPJ>
+    </autXML>
   </infNFe>
 </NFe>
       XML
@@ -133,6 +136,9 @@ RSpec.describe RubyXmlNfe::Xml do
             xPais: "BRASIL"
           },
           indIEDest: "9"
+        },
+        autXML: {
+          CNPJ: "08370779000149"
         }
       }
     end

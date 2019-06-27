@@ -2,10 +2,11 @@ require 'nokogiri'
 require 'ruby_xml_nfe/ide'
 require 'ruby_xml_nfe/emit'
 require 'ruby_xml_nfe/dest'
+require 'ruby_xml_nfe/aut_xml'
 
 module RubyXmlNfe
   class Xml
-    attr_reader :chNFe, :ide_params, :emit_params, :dest_params
+    attr_reader :chNFe, :ide_params, :emit_params, :dest_params, :aut_xml_params
 
     def initialize(name, params)
       @name = name
@@ -13,6 +14,7 @@ module RubyXmlNfe
       @ide_params = params[:ide]
       @emit_params = params[:emit]
       @dest_params = params[:dest]
+      @aut_xml_params = params[:autXML]
     end
 
     def build
@@ -27,6 +29,9 @@ module RubyXmlNfe
 
             dest = RubyXmlNfe::Dest.new(xml, dest_params)
             dest.build
+
+            aut_xml = RubyXmlNfe::AutXml.new(xml, aut_xml_params)
+            aut_xml.build
           end
         end
       end
