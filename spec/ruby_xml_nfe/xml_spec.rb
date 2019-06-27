@@ -50,6 +50,23 @@ RSpec.describe RubyXmlNfe::Xml do
       <IE>123456</IE>
       <CRT>3</CRT>
     </emit>
+    <dest>
+      <CNPJ>10864769000101</CNPJ>
+      <xNome>Supermercado Extra Ltda - Me</xNome>
+      <enderDest>
+        <xLgr>R Gonalo Jose Vituriano, S/n</xLgr>
+        <nro>1516</nro>
+        <xCpl>1582</xCpl>
+        <xBairro>Santa Helena</xBairro>
+        <cMun>3301009</cMun>
+        <xMun>CAMPOS DOS GOYTACAZES</xMun>
+        <UF>PB</UF>
+        <CEP>58925000</CEP>
+        <cPais>1058</cPais>
+        <xPais>BRASIL</xPais>
+      </enderDest>
+      <indIEDest>9</indIEDest>
+    </dest>
   </infNFe>
 </NFe>
       XML
@@ -99,6 +116,23 @@ RSpec.describe RubyXmlNfe::Xml do
           },
           IE: "123456",
           CRT: "3"
+        },
+        dest: {
+          CNPJ: "10864769000101",
+          xNome: "Supermercado Extra Ltda - Me",
+          enderDest: {
+            xLgr: "R Gonalo Jose Vituriano, S/n",
+            nro: "1516",
+            xCpl: "1582",
+            xBairro: "Santa Helena",
+            cMun: "3301009",
+            xMun: "CAMPOS DOS GOYTACAZES",
+            UF: "PB",
+            CEP: "58925000",
+            cPais: "1058",
+            xPais: "BRASIL"
+          },
+          indIEDest: "9"
         }
       }
     end
