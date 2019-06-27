@@ -30,6 +30,26 @@ RSpec.describe RubyXmlNfe::Xml do
       <procEmi>0</procEmi>
       <verProc>1.0</verProc>
     </ide>
+    <emit>
+      <CNPJ>14708867000100</CNPJ>
+      <xNome>PEDRO LAB</xNome>
+      <xFant>PEDRO LAB</xFant>
+      <enderEmit>
+        <xLgr>TEST STREET</xLgr>
+        <nro>131</nro>
+        <xCpl>FUNDOS</xCpl>
+        <xBairro>ANCHIETA</xBairro>
+        <cMun>3304557</cMun>
+        <xMun>RIO DE JANEIRO</xMun>
+        <UF>RJ</UF>
+        <CEP>123456</CEP>
+        <cPais>1058</cPais>
+        <xPais>BRASIL</xPais>
+        <fone>21212121212</fone>
+      </enderEmit>
+      <IE>123456</IE>
+      <CRT>3</CRT>
+    </emit>
   </infNFe>
 </NFe>
       XML
@@ -59,6 +79,26 @@ RSpec.describe RubyXmlNfe::Xml do
           indPres: "9",
           procEmi: "0",
           verProc: "1.0"
+        },
+        emit: {
+          CNPJ: "14708867000100",
+          xNome: "PEDRO LAB",
+          xFant: "PEDRO LAB",
+          enderEmit: {
+            xLgr: "TEST STREET",
+            nro: "131",
+            xCpl: "FUNDOS",
+            xBairro: "ANCHIETA",
+            cMun: "3304557",
+            xMun: "RIO DE JANEIRO",
+            UF: "RJ",
+            CEP: "123456",
+            cPais: "1058",
+            xPais: "BRASIL",
+            fone: "21212121212"
+          },
+          IE: "123456",
+          CRT: "3"
         }
       }
     end
