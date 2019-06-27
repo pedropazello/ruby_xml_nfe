@@ -1,4 +1,5 @@
 require "ruby_xml_nfe/xml"
+require "ruby_xml_nfe/ide"
 
 RSpec.describe RubyXmlNfe::Xml do
   describe "#build" do
@@ -37,26 +38,28 @@ RSpec.describe RubyXmlNfe::Xml do
     let(:params) do
       {
         chNFe: "33190614708867000100550010000000011031955240",
-        cUF: "33",
-        cNF: "03195524",
-        natOp: "VENDA",
-        mod: "55",
-        serie: "1",
-        nNF: "123",
-        dhEmi: "31/07/1994",
-        dhSaiEnt: "31/07/1994",
-        tpNF: "1",
-        idDest: "1",
-        cMunFG: "3304557",
-        tpImp: "1",
-        tpEmis: "1",
-        cDV: "0",
-        tpAmb: "1",
-        finNFe: "1",
-        indFinal: "1",
-        indPres: "9",
-        procEmi: "0",
-        verProc: "1.0"
+        ide: {
+          cUF: "33",
+          cNF: "03195524",
+          natOp: "VENDA",
+          mod: "55",
+          serie: "1",
+          nNF: "123",
+          dhEmi: "31/07/1994",
+          dhSaiEnt: "31/07/1994",
+          tpNF: "1",
+          idDest: "1",
+          cMunFG: "3304557",
+          tpImp: "1",
+          tpEmis: "1",
+          cDV: "0",
+          tpAmb: "1",
+          finNFe: "1",
+          indFinal: "1",
+          indPres: "9",
+          procEmi: "0",
+          verProc: "1.0"
+        }
       }
     end
 
