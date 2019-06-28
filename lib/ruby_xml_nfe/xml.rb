@@ -3,10 +3,11 @@ require 'ruby_xml_nfe/ide'
 require 'ruby_xml_nfe/emit'
 require 'ruby_xml_nfe/dest'
 require 'ruby_xml_nfe/aut_xml'
+require 'ruby_xml_nfe/items'
 
 module RubyXmlNfe
   class Xml
-    attr_reader :chNFe, :ide_params, :emit_params, :dest_params, :aut_xml_params
+    attr_reader :chNFe, :ide_params, :emit_params, :dest_params, :aut_xml_params, :items_params
 
     def initialize(name, params)
       @name = name
@@ -15,6 +16,7 @@ module RubyXmlNfe
       @emit_params = params[:emit]
       @dest_params = params[:dest]
       @aut_xml_params = params[:autXML]
+      @items_params = params[:items]
     end
 
     def build
@@ -32,6 +34,9 @@ module RubyXmlNfe
 
             aut_xml = RubyXmlNfe::AutXml.new(xml, aut_xml_params)
             aut_xml.build
+
+            items = RubyXmlNfe::Items.new(xml, items_params)
+            items.build
           end
         end
       end

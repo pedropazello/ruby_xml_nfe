@@ -70,6 +70,67 @@ RSpec.describe RubyXmlNfe::Xml do
     <autXML>
       <CNPJ>08370779000149</CNPJ>
     </autXML>
+    <det nItem="1">
+      <prod>
+        <cProd>PS4</cProd>
+        <cEAN>SEM GTIN</cEAN>
+        <xProd>Console Sony Playstation 4</xProd>
+        <NCM>95045000</NCM>
+        <CEST>2107900</CEST>
+        <CFOP>5102</CFOP>
+        <uCom>UN</uCom>
+        <qCom>5.0000</qCom>
+        <vUnCom>1400.0000000000</vUnCom>
+        <vProd>7000.00</vProd>
+        <cEANTrib>SEM GTIN</cEANTrib>
+        <uTrib>UN</uTrib>
+        <qTrib>5.0000</qTrib>
+        <vUnTrib>1400.0000000000</vUnTrib>
+        <indTot>1</indTot>
+      </prod>
+      <imposto>
+        <ICMS>
+          <ICMS00>
+            <orig>0</orig>
+            <CST>00</CST>
+            <modBC>3</modBC>
+            <vBC>7000.00</vBC>
+            <pICMS>18.00</pICMS>
+            <vICMS>1260.00</vICMS>
+            <pFCP>2.00</pFCP>
+            <vFCP>140.00</vFCP>
+          </ICMS00>
+        </ICMS>
+        <IPI>
+          <cEnq>999</cEnq>
+          <IPINT>
+            <CST>51</CST>
+          </IPINT>
+        </IPI>
+        <II>
+          <vBC>0.00</vBC>
+          <vDespAdu>0.00</vDespAdu>
+          <vII>0.00</vII>
+          <vIOF>0.00</vIOF>
+        </II>
+        <PIS>
+          <PISAliq>
+            <CST>01</CST>
+            <vBC>7000.00</vBC>
+            <pPIS>1.65</pPIS>
+            <vPIS>115.50</vPIS>
+          </PISAliq>
+        </PIS>
+        <COFINS>
+          <COFINSAliq>
+            <CST>01</CST>
+            <vBC>7000.00</vBC>
+            <pCOFINS>7.60</pCOFINS>
+            <vCOFINS>532.00</vCOFINS>
+          </COFINSAliq>
+        </COFINS>
+      </imposto>
+    </det>
   </infNFe>
 </NFe>
       XML
@@ -139,7 +200,70 @@ RSpec.describe RubyXmlNfe::Xml do
         },
         autXML: {
           CNPJ: "08370779000149"
-        }
+        },
+        items: [
+          {
+            prod: {
+              cProd: "PS4",
+              cEAN: "SEM GTIN",
+              xProd: "Console Sony Playstation 4",
+              NCM: "95045000",
+              CEST: "2107900",
+              CFOP: "5102",
+              uCom: "UN",
+              qCom: "5.0000",
+              vUnCom: "1400.0000000000",
+              vProd: "7000.00",
+              cEANTrib: "SEM GTIN",
+              uTrib: "UN",
+              qTrib: "5.0000",
+              vUnTrib: "1400.0000000000",
+              indTot: 1
+            },
+            imposto: {
+              ICMS: {
+                ICMS00: {
+                  orig: "0",
+                  CST: "00",
+                  modBC: "3",
+                  vBC: "7000.00",
+                  pICMS: "18.00",
+                  vICMS: "1260.00",
+                  pFCP: "2.00",
+                  vFCP: "140.00"
+                }
+              },
+              IPI: {
+                cEnq: 999,
+                IPINT: {
+                  CST: 51
+                }
+              },
+              II: {
+                vBC: 0.00,
+                vDespAdu: 0.00,
+                vII: 0.00,
+                vIOF: 0.00,
+              },
+              PIS: {
+                PISAliq: {
+                  CST: "01",
+                  vBC: 7000.00,
+                  pPIS: 1.65,
+                  vPIS: 115.50,
+                }
+              },
+              COFINS: {
+                COFINSAliq: {
+                  CST: "01",
+                  vBC: 7000.00,
+                  pCOFINS: 7.60,
+                  vCOFINS: 532.00,
+                }
+              }
+            }
+          }
+        ]
       }
     end
 
