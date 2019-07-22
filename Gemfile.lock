@@ -68,6 +68,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.17)
   guard-rspec
+  pry
   rake (~> 10.0)
   rspec (~> 3.0)
   ruby_xml_nfe!

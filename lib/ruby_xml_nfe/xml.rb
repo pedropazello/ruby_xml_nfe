@@ -5,11 +5,16 @@ require 'ruby_xml_nfe/dest'
 require 'ruby_xml_nfe/aut_xml'
 require 'ruby_xml_nfe/items'
 require 'ruby_xml_nfe/total'
+require 'ruby_xml_nfe/transp'
+require 'ruby_xml_nfe/cobr'
+require 'ruby_xml_nfe/pag'
+require 'ruby_xml_nfe/inf_adic'
 
 module RubyXmlNfe
   class Xml
     attr_reader :chNFe, :ide_params, :emit_params, :dest_params, :aut_xml_params,
-      :items_params, :total_params
+      :items_params, :total_params, :transp_params, :cobr_params, :pag_params,
+      :inf_adc_params
 
     def initialize(name, params)
       @name = name
@@ -20,6 +25,10 @@ module RubyXmlNfe
       @aut_xml_params = params[:autXML]
       @items_params = params[:items]
       @total_params = params[:total]
+      @transp_params = params[:transp]
+      @cobr_params = params[:cobr]
+      @pag_params = params[:pag]
+      @inf_adc_params = params[:infAdic]
     end
 
     def build
@@ -43,6 +52,18 @@ module RubyXmlNfe
 
             total = RubyXmlNfe::Total.new(xml, total_params)
             total.build
+
+            transp = RubyXmlNfe::Transp.new(xml, transp_params)
+            transp.build
+
+            cobr = RubyXmlNfe::Cobr.new(xml, cobr_params)
+            cobr.build
+
+            pag = RubyXmlNfe::Pag.new(xml, pag_params)
+            pag.build
+
+            inf_adic = RubyXmlNfe::InfAdic.new(xml, inf_adc_params)
+            inf_adic.build
           end
         end
       end

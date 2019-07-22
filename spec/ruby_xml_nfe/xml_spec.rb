@@ -154,6 +154,47 @@ RSpec.describe RubyXmlNfe::Xml do
         <vNF>7000.00</vNF>
       </ICMSTot>
     </total>
+    <transp>
+      <modFrete>0</modFrete>
+      <vol>
+        <pesoL>0.000</pesoL>
+        <pesoB>0.000</pesoB>
+      </vol>
+    </transp>
+    <cobr>
+      <fat>
+        <nFat>000000001</nFat>
+        <vOrig>7000.00</vOrig>
+        <vDesc>0.00</vDesc>
+        <vLiq>7000.00</vLiq>
+      </fat>
+      <dup>
+        <nDup>001</nDup>
+        <dVenc>2019-07-22</dVenc>
+        <vDup>2333.34</vDup>
+      </dup>
+      <dup>
+        <nDup>002</nDup>
+        <dVenc>2019-08-06</dVenc>
+        <vDup>2333.33</vDup>
+      </dup>
+      <dup>
+        <nDup>003</nDup>
+        <dVenc>2019-08-21</dVenc>
+        <vDup>2333.33</vDup>
+      </dup>
+    </cobr>
+    <pag>
+      <detPag>
+        <indPag>0</indPag>
+        <tPag>90</tPag>
+        <vPag>0.00</vPag>
+      </detPag>
+    </pag>
+    <infAdic>
+      <infAdFisco>Valor do FCP: R$ 140,00</infAdFisco>
+      <infCpl>;</infCpl>
+    </infAdic>
   </infNFe>
 </NFe>
       XML
@@ -309,6 +350,49 @@ RSpec.describe RubyXmlNfe::Xml do
             vOutro: "0.00",
             vNF: "7000.00",
           }
+        },
+        transp: {
+          modFrete: "0",
+          vol: {
+            pesoL: "0.000",
+            pesoB: "0.000",
+          }
+        },
+        cobr: {
+          fat: {
+            nFat: "000000001",
+            vOrig: "7000.00",
+            vDesc: "0.00",
+            vLiq: "7000.00",
+          },
+          dup: [
+            {
+              nDup: "001",
+              dVenc: "2019-07-22",
+              vDup: "2333.34",
+            },
+            {
+              nDup: "002",
+              dVenc: "2019-08-06",
+              vDup: "2333.33",
+            },
+            {
+              nDup: "003",
+              dVenc: "2019-08-21",
+              vDup: "2333.33",
+            }
+          ]
+        },
+        pag: {
+          detPag: {
+            indPag: "0",
+            tPag: "90",
+            vPag: "0.00"
+          }
+        },
+        infAdic: {
+          infAdFisco: "Valor do FCP: R$ 140,00",
+          infCpl: ";"
         }
       }
     end
