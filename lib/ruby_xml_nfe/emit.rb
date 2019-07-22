@@ -3,7 +3,7 @@ require 'ruby_xml_nfe/ender_emit'
 
 module RubyXmlNfe
   class Emit
-    attr_reader :xml, :cnpj, :xNome, :xFant, :ender_emit_params, :ie, :crt
+    attr_reader :xml, :cnpj, :xNome, :xFant, :ender_emit_params, :ie, :im, :cnae, :crt
 
     def initialize(xml, params)
       @xml = xml
@@ -12,6 +12,8 @@ module RubyXmlNfe
       @xFant = params[:xFant]
       @ender_emit_params = params[:enderEmit]
       @ie = params[:IE]
+      @im = params[:IM]
+      @cnae = params[:CNAE]
       @crt = params[:CRT]
     end
 
@@ -25,6 +27,8 @@ module RubyXmlNfe
         ender_emit.build
 
         xml.IE ie
+        xml.IM im if im
+        xml.CNAE cnae if cnae
         xml.CRT crt
       end
     end

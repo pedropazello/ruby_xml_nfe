@@ -1,7 +1,7 @@
 module RubyXmlNfe
   class Prod
     attr_reader :xml, :cProd, :cEAN, :xProd, :ncm, :cest, :cfop, :uCom, :qCom, :vUnCom,
-      :vProd, :cEANTrib, :uTrib, :qTrib, :vUnTrib, :indTot
+      :vProd, :cEANTrib, :uTrib, :qTrib, :vUnTrib, :indTot, :xPed, :nItemPed, :nFCI
 
     def initialize(xml, params)
       @xml = xml
@@ -21,6 +21,9 @@ module RubyXmlNfe
       @qTrib = params[:qTrib]
       @vUnTrib = params[:vUnTrib]
       @indTot = params[:indTot]
+      @xPed = params[:xPed]
+      @nItemPed = params[:nItemPed]
+      @nFCI = params[:nFCI]
     end
 
     def build
@@ -29,7 +32,7 @@ module RubyXmlNfe
         xml.cEAN cEAN
         xml.xProd xProd
         xml.NCM ncm
-        xml.CEST cest
+        xml.CEST cest if cest
         xml.CFOP cfop
         xml.uCom uCom
         xml.qCom qCom
@@ -40,6 +43,9 @@ module RubyXmlNfe
         xml.qTrib qTrib
         xml.vUnTrib vUnTrib
         xml.indTot indTot
+        xml.xPed xPed if xPed
+        xml.nItemPed nItemPed if nItemPed
+        xml.nFCI nFCI if nFCI
       end
     end
   end

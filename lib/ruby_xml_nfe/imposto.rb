@@ -22,17 +22,25 @@ module RubyXmlNfe
         icms = RubyXmlNfe::Icms.new(xml, icms_params)
         icms.build
 
-        ipi = RubyXmlNfe::Ipi.new(xml, ipi_params)
-        ipi.build
+        if ipi_params
+          ipi = RubyXmlNfe::Ipi.new(xml, ipi_params)
+          ipi.build
+        end
 
-        ii = RubyXmlNfe::Ii.new(xml, ii_params)
-        ii.build
+        if ii_params
+          ii = RubyXmlNfe::Ii.new(xml, ii_params)
+          ii.build
+        end
 
-        pis = RubyXmlNfe::Pis.new(xml, pis_params)
-        pis.build
+        if pis_params
+          pis = RubyXmlNfe::Pis.new(xml, pis_params)
+          pis.build
+        end
 
-        cofins = RubyXmlNfe::Cofins.new(xml, cofins_params)
-        cofins.build
+        if cofins_params
+          cofins = RubyXmlNfe::Cofins.new(xml, cofins_params)
+          cofins.build
+        end
       end
     end
   end

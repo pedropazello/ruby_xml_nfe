@@ -3,7 +3,7 @@ require 'ruby_xml_nfe/imposto'
 
 module RubyXmlNfe
   class Items
-    attr_reader :xml, :items
+    attr_reader :xml, :items, :infAdProd
 
     def initialize(xml, items)
       @xml = xml
@@ -18,6 +18,8 @@ module RubyXmlNfe
 
           imposto = RubyXmlNfe::Imposto.new(xml, item[:imposto])
           imposto.build
+
+          xml.infAdProd item[:infAdProd] if item[:infAdProd]
         end
       end
     end

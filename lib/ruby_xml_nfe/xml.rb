@@ -32,7 +32,7 @@ module RubyXmlNfe
     end
 
     def build
-      builder = Nokogiri::XML::Builder.new do |xml|
+      builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
         xml.NFe(xmlns: "http://www.portalfiscal.inf.br/nfe") do
           xml.infNFe(Id: "NFe#{chNFe}", versao: "4.00") do
             ide = RubyXmlNfe::Ide.new(xml, ide_params)
@@ -44,8 +44,10 @@ module RubyXmlNfe
             dest = RubyXmlNfe::Dest.new(xml, dest_params)
             dest.build
 
-            aut_xml = RubyXmlNfe::AutXml.new(xml, aut_xml_params)
-            aut_xml.build
+            if aut_xml_params
+              aut_xml = RubyXmlNfe::AutXml.new(xml, aut_xml_params)
+              aut_xml.build
+            end
 
             items = RubyXmlNfe::Items.new(xml, items_params)
             items.build
@@ -56,8 +58,10 @@ module RubyXmlNfe
             transp = RubyXmlNfe::Transp.new(xml, transp_params)
             transp.build
 
-            cobr = RubyXmlNfe::Cobr.new(xml, cobr_params)
-            cobr.build
+            if cobr_params
+              cobr = RubyXmlNfe::Cobr.new(xml, cobr_params)
+              cobr.build
+            end
 
             pag = RubyXmlNfe::Pag.new(xml, pag_params)
             pag.build

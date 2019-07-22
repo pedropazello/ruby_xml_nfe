@@ -5,7 +5,7 @@ RSpec.describe RubyXmlNfe::Xml do
   describe "#build" do
     let(:xml_as_string) do
       <<-XML
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
   <infNFe Id="NFe33190614708867000100550010000000011031955240" versao="4.00">
     <ide>
@@ -401,6 +401,359 @@ RSpec.describe RubyXmlNfe::Xml do
 
     it "builds a valid NF-e XML" do
       expect(xml.build).to eq(xml_as_string)
+    end
+
+    describe "#build" do
+      let(:xml_as_string) do
+        <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+  <infNFe Id="NFe33190614708867000100550010000000011031955240" versao="4.00">
+    <ide>
+      <cUF>33</cUF>
+      <cNF>00319915</cNF>
+      <natOp>BONIFICACAO</natOp>
+      <mod>55</mod>
+      <serie>1</serie>
+      <nNF>152255</nNF>
+      <dhEmi>2018-11-27T10:47:00-02:00</dhEmi>
+      <tpNF>1</tpNF>
+      <idDest>2</idDest>
+      <cMunFG>3301009</cMunFG>
+      <tpImp>1</tpImp>
+      <tpEmis>1</tpEmis>
+      <cDV>5</cDV>
+      <tpAmb>1</tpAmb>
+      <finNFe>1</finNFe>
+      <indFinal>0</indFinal>
+      <indPres>9</indPres>
+      <procEmi>0</procEmi>
+      <verProc>2.78</verProc>
+    </ide>
+    <emit>
+      <CNPJ>47508411000156</CNPJ>
+      <xNome>Companhia Brasileira De Distribuicao</xNome>
+      <xFant>Distribuicao</xFant>
+      <enderEmit>
+        <xLgr>AVENIDA NILO PECANHA</xLgr>
+        <nro>1</nro>
+        <xCpl>1516/1582</xCpl>
+        <xBairro>PQ. DOS RODOVIARIOS</xBairro>
+        <cMun>3301009</cMun>
+        <xMun>CAMPOS DOS GOYTACAZES</xMun>
+        <UF>RJ</UF>
+        <CEP>28030035</CEP>
+        <cPais>1058</cPais>
+        <xPais>BRASIL</xPais>
+        <fone>21123456</fone>
+      </enderEmit>
+      <IE>123456</IE>
+      <IM>123466</IM>
+      <CNAE>24324534</CNAE>
+      <CRT>1</CRT>
+    </emit>
+    <dest>
+      <CNPJ>22628472000126</CNPJ>
+      <xNome>ARCANJO MIGUEL COMERCIO DE ARTIGOS</xNome>
+      <enderDest>
+        <xLgr>R MAJOR ANTONIO DOMINGUES</xLgr>
+        <nro>340</nro>
+        <xBairro>CENTRO</xBairro>
+        <cMun>3549904</cMun>
+        <xMun>SAO JOSE DOS CAMPOS</xMun>
+        <UF>SP</UF>
+        <CEP>12245750</CEP>
+        <cPais>1058</cPais>
+        <xPais>BRASIL</xPais>
+        <fone>123456789</fone>
+      </enderDest>
+      <indIEDest>1</indIEDest>
+      <IE>12121212121</IE>
+      <email>test@gmail.com</email>
+    </dest>
+    <det nItem="1">
+      <prod>
+        <cProd>IMP91083</cProd>
+        <cEAN>8712930093947</cEAN>
+        <xProd>CARRINHO QUINNY MOODD 2015 PINK PASSION</xProd>
+        <NCM>87150000</NCM>
+        <CFOP>6910</CFOP>
+        <uCom>UN</uCom>
+        <qCom>1.0000</qCom>
+        <vUnCom>1817.73000000</vUnCom>
+        <vProd>1817.73</vProd>
+        <cEANTrib>8712930093947</cEANTrib>
+        <uTrib>UN</uTrib>
+        <qTrib>1.0000</qTrib>
+        <vUnTrib>1817.73000000</vUnTrib>
+        <indTot>1</indTot>
+        <xPed>104378</xPed>
+        <nItemPed>01</nItemPed>
+        <nFCI>ABCDEF-6967-4F53-A5F1-ABCDEFGH</nFCI>
+      </prod>
+      <imposto>
+        <ICMS>
+          <ICMS00>
+            <orig>5</orig>
+            <CST>00</CST>
+            <modBC>3</modBC>
+            <vBC>1817.73</vBC>
+            <pICMS>12.0000</pICMS>
+            <vICMS>218.12</vICMS>
+          </ICMS00>
+        </ICMS>
+        <IPI>
+          <cEnq>999</cEnq>
+          <IPINT>
+            <CST>53</CST>
+          </IPINT>
+        </IPI>
+        <PIS>
+          <PISOutr>
+            <CST>49</CST>
+            <vBC>0</vBC>
+            <pPIS>0</pPIS>
+            <vPIS>0</vPIS>
+          </PISOutr>
+        </PIS>
+        <COFINS>
+          <COFINSOutr>
+            <CST>49</CST>
+            <vBC>0</vBC>
+            <pCOFINS>0</pCOFINS>
+            <vCOFINS>0</vCOFINS>
+          </COFINSOutr>
+        </COFINS>
+      </imposto>
+      <infAdProd>Resolucao do Senado Federal nº 13/12, Numero da FCI ABCDEF-6967-4F53-A5F1-ABCDEFGH.</infAdProd>
+    </det>
+    <total>
+      <ICMSTot>
+        <vBC>1817.73</vBC>
+        <vICMS>218.12</vICMS>
+        <vICMSDeson>0</vICMSDeson>
+        <vFCPUFDest>0</vFCPUFDest>
+        <vICMSUFDest>0</vICMSUFDest>
+        <vICMSUFRemet>0</vICMSUFRemet>
+        <vFCP>0</vFCP>
+        <vBCST>0</vBCST>
+        <vST>0</vST>
+        <vFCPST>0</vFCPST>
+        <vFCPSTRet>0</vFCPSTRet>
+        <vProd>1817.73</vProd>
+        <vFrete>0</vFrete>
+        <vSeg>0</vSeg>
+        <vDesc>0</vDesc>
+        <vII>0</vII>
+        <vIPI>0</vIPI>
+        <vIPIDevol>0</vIPIDevol>
+        <vPIS>0</vPIS>
+        <vCOFINS>0</vCOFINS>
+        <vOutro>0</vOutro>
+        <vNF>1817.73</vNF>
+      </ICMSTot>
+    </total>
+    <transp>
+      <modFrete>0</modFrete>
+      <vol>
+        <qVol>1</qVol>
+        <esp>CAIXA</esp>
+        <pesoL>15.100</pesoL>
+        <pesoB>20.500</pesoB>
+      </vol>
+    </transp>
+    <pag>
+      <detPag>
+        <indPag>0</indPag>
+        <tPag>99</tPag>
+        <vPag>1817.73</vPag>
+      </detPag>
+    </pag>
+    <infAdic>
+      <infAdFisco>MD-5:21392c764fc8e83acf162b76d369f286</infAdFisco>
+      <infCpl>aaaaaaaaaaaaaaa</infCpl>
+    </infAdic>
+  </infNFe>
+</NFe>
+        XML
+      end
+
+      let(:params) {
+        {
+          chNFe: "33190614708867000100550010000000011031955240",
+          ide: {
+            cUF: "33",
+            cNF: "00319915",
+            natOp: "BONIFICACAO",
+            mod: "55",
+            serie: "1",
+            nNF: "152255",
+            dhEmi: "2018-11-27T10:47:00-02:00",
+            tpNF: "1",
+            idDest: "2",
+            cMunFG: "3301009",
+            tpImp: "1",
+            tpEmis: "1",
+            cDV: "5",
+            tpAmb: "1",
+            finNFe: "1",
+            indFinal: "0",
+            indPres: "9",
+            procEmi: "0",
+            verProc: "2.78",
+          },
+          emit: {
+            CNPJ: "47508411000156",
+            xNome: "Companhia Brasileira De Distribuicao",
+            xFant: "Distribuicao",
+            enderEmit: {
+              xLgr: "AVENIDA NILO PECANHA",
+              nro: "1",
+              xCpl: "1516/1582",
+              xBairro: "PQ. DOS RODOVIARIOS",
+              cMun: "3301009",
+              xMun: "CAMPOS DOS GOYTACAZES",
+              UF: "RJ",
+              CEP: "28030035",
+              cPais: "1058",
+              xPais: "BRASIL",
+              fone: "21123456",
+            },
+            IE: "123456",
+            IM: "123466",
+            CNAE: "24324534",
+            CRT: "1",
+          },
+          dest: {
+            CNPJ: "22628472000126",
+            xNome: "ARCANJO MIGUEL COMERCIO DE ARTIGOS",
+            enderDest: {
+              xLgr: "R MAJOR ANTONIO DOMINGUES",
+              nro: "340",
+              xBairro: "CENTRO",
+              cMun: "3549904",
+              xMun: "SAO JOSE DOS CAMPOS",
+              UF: "SP",
+              CEP: "12245750",
+              cPais: "1058",
+              xPais: "BRASIL",
+              fone: "123456789",
+            },
+            indIEDest: "1",
+            IE: "12121212121",
+            email: "test@gmail.com",
+          },
+          items: [
+            {
+              prod: {
+                cProd: "IMP91083",
+                cEAN: "8712930093947",
+                xProd: "CARRINHO QUINNY MOODD 2015 PINK PASSION",
+                NCM: "87150000",
+                CFOP: "6910",
+                uCom: "UN",
+                qCom: "1.0000",
+                vUnCom: "1817.73000000",
+                vProd: "1817.73",
+                cEANTrib: "8712930093947",
+                uTrib: "UN",
+                qTrib: "1.0000",
+                vUnTrib: "1817.73000000",
+                indTot: "1",
+                xPed: "104378",
+                nItemPed: "01",
+                nFCI: "ABCDEF-6967-4F53-A5F1-ABCDEFGH",
+              },
+              imposto: {
+                ICMS: {
+                  ICMS00: {
+                    orig: "5",
+                    CST: "00",
+                    modBC: "3",
+                    vBC: "1817.73",
+                    pICMS: "12.0000",
+                    vICMS: "218.12",
+                  },
+                },
+                IPI: {
+                  cEnq: "999",
+                  IPINT: {
+                    CST: "53"
+                  }
+                },
+                PIS: {
+                  PISOutr: {
+                    CST: "49",
+                    vBC: "0",
+                    pPIS: "0",
+                    vPIS: "0",
+                  }
+                },
+                COFINS: {
+                  COFINSOutr: {
+                    CST: "49",
+                    vBC: "0",
+                    pCOFINS: "0",
+                    vCOFINS: "0",
+                  }
+                }
+              },
+              infAdProd: "Resolucao do Senado Federal nº 13/12, Numero da FCI ABCDEF-6967-4F53-A5F1-ABCDEFGH."
+            }
+          ],
+          total: {
+            ICMSTot: {
+              vBC: "1817.73",
+              vICMS: "218.12",
+              vICMSDeson: "0",
+              vFCPUFDest: "0",
+              vICMSUFDest: "0",
+              vICMSUFRemet: "0",
+              vFCP: "0",
+              vBCST: "0",
+              vST: "0",
+              vFCPST: "0",
+              vFCPSTRet: "0",
+              vProd: "1817.73",
+              vFrete: "0",
+              vSeg: "0",
+              vDesc: "0",
+              vII: "0",
+              vIPI: "0",
+              vIPIDevol: "0",
+              vPIS: "0",
+              vCOFINS: "0",
+              vOutro: "0",
+              vNF: "1817.73",
+            }
+          },
+          transp: {
+            modFrete: "0",
+            vol: {
+              qVol: "1",
+              esp: "CAIXA",
+              pesoL: "15.100",
+              pesoB: "20.500",
+            }
+          },
+          pag: {
+            detPag: {
+              indPag: "0",
+              tPag: "99",
+              vPag: "1817.73",
+            }
+          },
+          infAdic: {
+            infAdFisco: "MD-5:21392c764fc8e83acf162b76d369f286",
+            infCpl: "aaaaaaaaaaaaaaa",
+          }
+        }
+      }
+      let(:xml) { RubyXmlNfe::Xml.new("foo.xml", params) }
+
+      it "builds a valid NF-e XML" do
+        expect(xml.build).to eq(xml_as_string)
+      end
     end
   end
 end

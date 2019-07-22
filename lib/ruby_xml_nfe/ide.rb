@@ -38,7 +38,7 @@ module RubyXmlNfe
         xml.serie serie
         xml.nNF nNF
         xml.dhEmi dhEmi
-        xml.dhSaiEnt dhSaiEnt
+        xml.dhSaiEnt dhSaiEnt if dhSaiEnt
         xml.tpNF tpNF
         xml.idDest idDest
         xml.cMunFG cMunFG

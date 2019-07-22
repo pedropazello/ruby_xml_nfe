@@ -22,8 +22,8 @@ module RubyXmlNfe
         xml.vBC vBC
         xml.pICMS pICMS
         xml.vICMS vICMS
-        xml.pFCP pFCP
-        xml.vFCP vFCP
+        xml.pFCP pFCP if pFCP
+        xml.vFCP vFCP if vFCP
       end
     end
   end

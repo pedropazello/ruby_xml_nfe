@@ -3,7 +3,7 @@ require 'ruby_xml_nfe/ender_dest'
 
 module RubyXmlNfe
   class Dest
-    attr_reader :xml, :cnpj, :xNome, :ender_dest_params, :indIEDest
+    attr_reader :xml, :cnpj, :xNome, :ender_dest_params, :indIEDest, :ie, :email
 
     def initialize(xml, params)
       @xml = xml
@@ -11,6 +11,8 @@ module RubyXmlNfe
       @xNome = params[:xNome]
       @ender_dest_params = params[:enderDest]
       @indIEDest = params[:indIEDest]
+      @ie = params[:IE]
+      @email = params[:email]
     end
 
     def build
@@ -22,6 +24,8 @@ module RubyXmlNfe
         ender_emit.build
 
         xml.indIEDest indIEDest
+        xml.IE ie if ie
+        xml.email email if email
       end
     end
   end

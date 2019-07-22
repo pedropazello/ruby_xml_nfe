@@ -2,7 +2,8 @@ require 'nokogiri'
 
 module RubyXmlNfe
   class EnderDest
-    attr_accessor :xml, :xLgr, :nro, :xCpl, :xBairro, :cMun, :xMun, :uf, :cep, :cPais, :xPais
+    attr_accessor :xml, :xLgr, :nro, :xCpl, :xBairro, :cMun, :xMun, :uf,
+      :cep, :cPais, :xPais, :fone
 
     def initialize(xml, params)
       @xml = xml
@@ -16,13 +17,14 @@ module RubyXmlNfe
       @cep = params[:CEP]
       @cPais = params[:cPais]
       @xPais = params[:xPais]
+      @fone = params[:fone]
     end
 
     def build
       xml.enderDest do
         xml.xLgr xLgr
         xml.nro nro
-        xml.xCpl xCpl
+        xml.xCpl xCpl if xCpl
         xml.xBairro xBairro
         xml.cMun cMun
         xml.xMun xMun
@@ -30,6 +32,7 @@ module RubyXmlNfe
         xml.CEP cep
         xml.cPais cPais
         xml.xPais xPais
+        xml.fone fone if fone
       end
     end
   end

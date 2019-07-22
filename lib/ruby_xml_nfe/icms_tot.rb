@@ -1,6 +1,6 @@
 module RubyXmlNfe
   class IcmsTot
-    attr_reader *%i(xml vBC vICMS vICMSDeson vFCP vBCST vST vFCPST
+    attr_reader *%i(xml vBC vICMS vICMSDeson vFCPUFDest vICMSUFDest vICMSUFRemet vFCP vBCST vST vFCPST
       vFCPSTRet vProd vFrete vSeg vDesc vII vIPI vIPIDevol vPIS vCOFINS vOutro vNF)
 
     def initialize(xml, params)
@@ -8,6 +8,9 @@ module RubyXmlNfe
       @vBC = params[:vBC]
       @vICMS = params[:vICMS]
       @vICMSDeson = params[:vICMSDeson]
+      @vFCPUFDest = params[:vFCPUFDest]
+      @vICMSUFDest = params[:vICMSUFDest]
+      @vICMSUFRemet = params[:vICMSUFRemet]
       @vFCP = params[:vFCP]
       @vBCST = params[:vBCST]
       @vST = params[:vST]
@@ -31,6 +34,9 @@ module RubyXmlNfe
         xml.vBC vBC
         xml.vICMS vICMS
         xml.vICMSDeson vICMSDeson
+        xml.vFCPUFDest vFCPUFDest if vFCPUFDest
+        xml.vICMSUFDest vICMSUFDest if vICMSUFDest
+        xml.vICMSUFRemet vICMSUFRemet if vICMSUFRemet
         xml.vFCP vFCP
         xml.vBCST vBCST
         xml.vST vST
