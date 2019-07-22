@@ -1,9 +1,13 @@
 module RubyXmlNfe
   class Ii
-    attr_reader :xml
+    attr_reader :xml, :vBC, :vDespAdu, :vII, :vIOF
 
     def initialize(xml, params)
       @xml = xml
+      @vBC = params[:vBC]
+      @vDespAdu = params[:vDespAdu]
+      @vII = params[:vII]
+      @vIOF = params[:vIOF]
     end
 
     def build
@@ -12,11 +16,6 @@ module RubyXmlNfe
         xml.vDespAdu vDespAdu
         xml.vII vII
         xml.vIOF vIOF
-        # <II>
-        #   <vBC>0.00</vBC>
-        #   <vDespAdu>0.00</vDespAdu>
-        #   <vII>0.00</vII>
-        #   <vIOF>0.00</vIOF>
       end
     end
   end

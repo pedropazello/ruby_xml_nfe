@@ -131,6 +131,29 @@ RSpec.describe RubyXmlNfe::Xml do
         </COFINS>
       </imposto>
     </det>
+    <total>
+      <ICMSTot>
+        <vBC>7000.00</vBC>
+        <vICMS>1260.00</vICMS>
+        <vICMSDeson>0.00</vICMSDeson>
+        <vFCP>140.00</vFCP>
+        <vBCST>0.00</vBCST>
+        <vST>0.00</vST>
+        <vFCPST>0.00</vFCPST>
+        <vFCPSTRet>0.00</vFCPSTRet>
+        <vProd>7000.00</vProd>
+        <vFrete>0.00</vFrete>
+        <vSeg>0.00</vSeg>
+        <vDesc>0.00</vDesc>
+        <vII>0.00</vII>
+        <vIPI>0.00</vIPI>
+        <vIPIDevol>0.00</vIPIDevol>
+        <vPIS>115.50</vPIS>
+        <vCOFINS>532.00</vCOFINS>
+        <vOutro>0.00</vOutro>
+        <vNF>7000.00</vNF>
+      </ICMSTot>
+    </total>
   </infNFe>
 </NFe>
       XML
@@ -240,30 +263,53 @@ RSpec.describe RubyXmlNfe::Xml do
                 }
               },
               II: {
-                vBC: 0.00,
-                vDespAdu: 0.00,
-                vII: 0.00,
-                vIOF: 0.00,
+                vBC: "0.00",
+                vDespAdu: "0.00",
+                vII: "0.00",
+                vIOF: "0.00",
               },
               PIS: {
                 PISAliq: {
                   CST: "01",
-                  vBC: 7000.00,
-                  pPIS: 1.65,
-                  vPIS: 115.50,
+                  vBC: "7000.00",
+                  pPIS: "1.65",
+                  vPIS: "115.50",
                 }
               },
               COFINS: {
                 COFINSAliq: {
                   CST: "01",
-                  vBC: 7000.00,
-                  pCOFINS: 7.60,
-                  vCOFINS: 532.00,
+                  vBC: "7000.00",
+                  pCOFINS: "7.60",
+                  vCOFINS: "532.00",
                 }
               }
             }
           }
-        ]
+        ],
+        total: {
+          ICMSTot: {
+            vBC: "7000.00",
+            vICMS: "1260.00",
+            vICMSDeson: "0.00",
+            vFCP: "140.00",
+            vBCST: "0.00",
+            vST: "0.00",
+            vFCPST: "0.00",
+            vFCPSTRet: "0.00",
+            vProd: "7000.00",
+            vFrete: "0.00",
+            vSeg: "0.00",
+            vDesc: "0.00",
+            vII: "0.00",
+            vIPI: "0.00",
+            vIPIDevol: "0.00",
+            vPIS: "115.50",
+            vCOFINS: "532.00",
+            vOutro: "0.00",
+            vNF: "7000.00",
+          }
+        }
       }
     end
 
